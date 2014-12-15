@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/impressum'
+
   get 'static_pages/home'
 
 get "/assets/themes/default/assets/fonts/icons.svg" => redirect("/assets/fonts/icons.svg")

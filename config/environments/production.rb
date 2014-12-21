@@ -14,6 +14,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Asssets need to be PreCompiled (Question on Stackoverflow)
   config.assets.compile = true
   config.assets.precompile =  ['*.js', '*.css', '*.css.erb'] 
 

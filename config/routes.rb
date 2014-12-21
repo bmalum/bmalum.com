@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'static_pages/status'
+
   get 'static_pages/impressum'
 
   get 'static_pages/home'
 
-get "/assets/themes/default/assets/fonts/icons.svg" => redirect("/assets/fonts/icons.svg")
+  get "/assets/themes/default/assets/fonts/icons.svg" => redirect("/assets/fonts/icons.svg")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

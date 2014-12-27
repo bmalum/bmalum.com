@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Adding LogRage
+    config.lograge.enabled = true
 end

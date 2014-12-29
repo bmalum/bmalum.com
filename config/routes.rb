@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get "sign_up" => "users#new", :as => "sign_up"
 
-  root 'static_pages#home'
+  root :to => "users#new"
+
+  resources :users
+
+  #root 'static_pages#home'
 
   get 'static_pages/status'
 

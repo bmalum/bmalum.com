@@ -39,4 +39,4 @@ gem 'spring',        group: :development
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 gem 'lograge'
-gem 'bcrypt'
+gem 'bcrypt', :require => "bcrypt"

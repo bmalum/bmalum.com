@@ -2,6 +2,9 @@ class User
   include Mongoid::Document
 
   attr_accessor :password
+  attr_accessor :password_confirmation
+
+  before_save :encrypt_password
 
   field :email, type: String
   field :password_hash, type: String

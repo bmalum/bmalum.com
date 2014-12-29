@@ -16,8 +16,8 @@ class User
   validates_confirmation_of :password
 
   def self.authenticate(email, password)
-  	user = find_by_email(email)
-  	if user && user.passowrd_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+  	user = find_by(email: email)
+  	if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
   		user
   	else
   	nil

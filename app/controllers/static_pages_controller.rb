@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+	#before_filter :logged_in?
+
+
   def impressum
   	# yield
   end

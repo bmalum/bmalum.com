@@ -1,27 +1,47 @@
-<h1>Sign Up</h1>
-
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
+<div class="ui centered grid">
+  <div class="six wide  column">
+    <h1 class="ui block top green attached header">Sign Up</h1>
+    <div class="ui bottom attached secondary segment">
+      <div class="ui success message">
+        <i class="close icon"></i>
+        <div class="header">Already valid Log In Informations?
+        </div>
+        <p>You can
+          <%= link_to "Log In", log_in_path %>
+          here</p>
+      </div>
+      <%= form_for @user do |f| %>
+        <div class='ui input'>
+          <% if @user.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
+        <p>
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %><br />
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %>
+        </p>
+      </div><br>  <br><p>
+        <%= submit_tag "Sign Up" , class: 'ui button centered green'%>
+      </p>
+    <% end %>
+  </div>
+</div>
+<script>
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').fadeOut();
+  });
+</script>

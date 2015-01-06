@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
 
   def index
-   @users = User.all
+    @users = User.search(params[:search])
   end
 
   def show   
+    @user = User.find(params[:id]) 
+  end
+
+  def edit   
     @user = User.find(params[:id]) 
   end
 
@@ -17,10 +21,16 @@ class UsersController < ApplicationController
   	if @user.save
   		redirect_to root_url, :notice => "Signed up!"
   	else
-  		render "new"
+  		redirect_to log_in_path
   	end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params_edit)
+      redirect_to @user
+    end
+  end
 
 
 
@@ -33,5 +43,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def user_params_edit
+    params.require(:user).permit(:email, :password_hash, :password_salt, :role)
   end
 end

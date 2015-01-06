@@ -9,6 +9,7 @@ class User
   field :email, type: String
   field :password_hash, type: String
   field :password_salt, type: String
+  field :role, type: String
 
   validates_presence_of :password, :on => :create
   validates_presence_of :email

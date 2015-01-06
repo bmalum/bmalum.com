@@ -8,13 +8,13 @@ Rails.application.routes.draw do
 
   get "log_out" => "sessions#destroy", :as => "log_out"
 
-  root :to => "users#new"
+  #root :to => "users#new"
 
   resources :users
 
   resources :sessions
 
-  #root 'static_pages#home'
+  root 'static_pages#home'
 
   get 'static_pages/status'
 

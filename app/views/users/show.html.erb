@@ -1,0 +1,8 @@
+<h1> test </h1>
+<% if @user.blank? %>
+<p>There are not any books currently in the system.</p>
+<% else %><p>
+<%= @user.email %></p>
+<%= @user.password_hash %>
+
+<% end %>

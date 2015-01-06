@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
   end
   
   def home
-  	    @percent_finished = "16"
+  	    @percent_finished = "19"
   end
   
   def status

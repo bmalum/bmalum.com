@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  before_filter :logged_in?
+  #before_filter :is_admin?
 
   def impressum
   	# yield

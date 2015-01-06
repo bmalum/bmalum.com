@@ -15,11 +15,21 @@ class ApplicationController < ActionController::Base
   def logged_in? 
     unless session[:user_id] 
       flash[:notice] = "You need to log in first." 
-      redirect_to some_path 
+      redirect_to log_in_path 
       return false 
     else 
       return true 
     end 
   end
-  
+
+ def is_admin? 
+    unless current_user.role == "admin" 
+      flash[:notice] = "You need to be Admin" 
+      redirect_to root_url 
+      return false 
+    else 
+      return true 
+    end 
+  end
+
 end

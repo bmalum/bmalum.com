@@ -34,7 +34,7 @@
                 <div class="column"><i class="mail icon"></i>Contact</div></a>
             </div>
           </div>
-          <% if flash[:bmalum] %>
+          <% if flash[:notice] %>
             <div class="ui centered grid">
               <div class="six wide column">
                 <div class="ui icon message">
@@ -44,7 +44,23 @@
                     <div class="header">
                       You got a new Notice:
                     </div>
-                    <p><%=   flash[:bmalum] %></p>
+                    <p><%=   flash[:notice] %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="ui centered grid">
+              <div class="six wide column">
+                <div class="ui icon message">
+                  <i class="close icon"></i>
+                  <i class="send outline icon"></i>
+                  <div class="content">
+                    <div class="header">
+                      You got a new Notice:
+                    </div>
+                    <p><%=   flash[:alert] %></p>
                   </div>
                 </div>
               </div>

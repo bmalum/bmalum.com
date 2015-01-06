@@ -1,7 +1,7 @@
 <% if @users.blank? %>
-<p>There are not any books currently in the system.</p>
+<p>There are not any Users currently in the system.</p>
 <% else %>
-<p>These are the current books in the system</p>
+<p>These are the current Users in the system</p>
 <ul>
 <% @users.each do |c| %>
 <li><%= link_to c.email, user_path(c) -%></li>

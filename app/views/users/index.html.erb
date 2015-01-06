@@ -2,6 +2,12 @@
 <p>There are not any Users currently in the system.</p>
 <% else %>
 <p>These are the current Users in the system</p>
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <ul>
 <% @users.each do |c| %>
 <li><%= link_to c.email, user_path(c) -%></li>

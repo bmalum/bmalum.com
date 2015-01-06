@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 
   def show   
     @user = User.find(params[:id]) 
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+  end
+
+  def edit   
+    @user = User.find(params[:id]) 
   end
 
   def new
@@ -21,6 +29,12 @@ class UsersController < ApplicationController
   	end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params_edit)
+      redirect_to @user
+    end
+  end
 
 
 
@@ -33,5 +47,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def user_params_edit
+    params.require(:user).permit(:email, :password_hash, :password_salt, :role)
   end
 end

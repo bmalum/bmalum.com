@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
  def is_admin? 
     unless current_user.role == "admin" 
       flash[:notice] = "You need to be Admin" 
-      redirect_to root_url 
+      redirect_to log_in_path 
       return false 
     else 
       return true 

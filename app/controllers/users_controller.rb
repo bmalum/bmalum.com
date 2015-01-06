@@ -6,10 +6,6 @@ class UsersController < ApplicationController
 
   def show   
     @user = User.find(params[:id]) 
-    respond_to do |format|
-        format.html { render :show }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
   end
 
   def edit   

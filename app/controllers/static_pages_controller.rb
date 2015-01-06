@@ -1,11 +1,6 @@
 class StaticPagesController < ApplicationController
-<<<<<<< HEAD
-	#before_filter :logged_in?
-
-=======
 
   before_filter :logged_in?
->>>>>>> refs/heads/Authentification
 
   def impressum
   	# yield

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   	if @user.save
   		redirect_to root_url, :notice => "Signed up!"
   	else
-  		render "new"
+  		redirect_to log_in_path
   	end
   end
 

@@ -17,7 +17,7 @@ class User
   field :email, type: String
   field :password_hash, type: String
   field :password_salt, type: String
-  field :role, type: String
+  field :role, type: Array, default: ["user"]
 
   validates :email, email: true
 
@@ -34,7 +34,7 @@ def self.search(search)
   end
 end
 
-  def self.authenticate(email, password)
+def self.authenticate(email, password)
   	user = find_by(email: email)
   	if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
   		user
@@ -47,7 +47,15 @@ end
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-      self.role = "user"
     end
   end
+
+   def role_as_string
+    role.join(',')
+  end
+
+  def role_as_string=(string)
+    update_attributes(role: string.split(','))
+  end
+
 end

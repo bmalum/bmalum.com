@@ -37,7 +37,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params_edit)
       redirect_to @user
+    else 
+      flash[:alert] = "Something went wrong"
+      render :edit
     end
+  end
+
+  def destroy
+    User.find(params[:id]).delete
+    redirect_to action: "index"
   end
 
   private

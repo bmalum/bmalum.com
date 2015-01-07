@@ -1,7 +1,23 @@
+<table class="ui green table">
+<thead>
+<tr>
+<th></th>
+<th>e-Mail</th>
+<th>Password Salt</th>
+<th>Password Hash</th>
+<th>Roles</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
 <%= form_for(@user) do |f| %>
-  <%= f.email_field :email %>
-  <%= f.text_field :password_hash %>
-  <%= f.text_field :password_salt %>
-  <%= f.text_field :role_as_string %>
-  <%= f.submit "Update" %>
+  <td> User Info</td>
+  <td><%= f.email_field :email %></td>
+  <td><%= f.text_field :password_hash %></td>
+  <td><%= f.text_field :password_salt %></td>
+  <td><%= f.text_field :role_as_string %></td>
+  <td><%= f.submit "Update" %>
 <% end %>
+</tr>
+</tbody>
+</table>

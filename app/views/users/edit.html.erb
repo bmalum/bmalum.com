@@ -2,5 +2,12 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="ui one column centered grid">
+  <div class="three wide centered column">
+<div class="ui buttons">
+  <div class="ui green button"><%= link_to 'Show', @user %></div>
+  <div class="or"></div>
+  <div class="ui button"><%= link_to 'Back', users_path %></div>
+</div>
+</div>
+</div>

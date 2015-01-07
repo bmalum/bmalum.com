@@ -1,7 +1,6 @@
 <table class="ui green table">
 <thead>
 <tr>
-<th></th>
 <th>e-Mail</th>
 <th>Password Salt</th>
 <th>Password Hash</th>
@@ -11,13 +10,37 @@
 <tbody>
 <tr>
 <%= form_for(@user) do |f| %>
-  <td> User Info</td>
-  <td><%= f.email_field :email %></td>
-  <td><%= f.text_field :password_hash %></td>
-  <td><%= f.text_field :password_salt %></td>
-  <td><%= f.text_field :role_as_string %></td>
-  <td><%= f.submit "Update" %>
+  <td>
+	<div class="ui form">
+		<div class="inline field">
+  			<%= f.email_field :email %>
+  		</div>
+  	</div>
+  </td>
+    <td>
+	<div class="ui  form">
+		<div class="inline field">
+  			<%= f.text_field :password_hash %>
+  		</div>
+  	</div>
+  </td>
+    <td>
+	<div class="ui  form">
+		<div class="inline field">
+  			<%= f.text_field :password_salt %>
+  		</div>
+  	</div>
+  </td>
+    <td>
+	<div class="ui  form">
+		<div class="inline field">
+  			<%= f.text_field :role_as_string %>
+  		</div>
+  	</div>
+  </td>  
+  <td><%= f.submit "Update", :class => "ui orange button" %>
 <% end %>
+</div>
 </tr>
 </tbody>
 </table>

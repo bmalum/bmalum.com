@@ -4,14 +4,31 @@
 <p>These are the current Users in the system</p>
 <%= form_tag users_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+  <div class="ui search">
+    <div class="ui icon input">
+    <%= text_field_tag :search, params[:search], :class => "prompt", :placeholder => "Search" %>
+    <i class="search icon"></i>
+  </div>
+    <%# submit_tag "Search", :name => nil, :class => "mini ui button" %>
+    </div>
   </p>
 <% end %>
-<ul>
-<% @users.each do |c| %>
-<li><%= link_to c.email, user_path(c) -%></li>
-<% end %>
-</ul>
+<table class="ui table celled striped">
+  <thead>
+    <tr>
+      <th>e-Mail</th>
+      <th colspan="3 center">Actions</th>
+    </tr>
+  </thead>
+<tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 <% end %>
 <p><%# link_to "Add new Book", {:action => 'new' }%></p>

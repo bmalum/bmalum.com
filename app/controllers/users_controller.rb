@@ -59,6 +59,6 @@ class UsersController < ApplicationController
   end
 
   def user_params_edit
-    params.require(:user).permit(:email, :password_hash, :password_salt, :role)
+    params.require(:user).permit(:email, :password_hash, :password_salt, :role_as_string)
   end
 end

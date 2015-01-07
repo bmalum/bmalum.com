@@ -11,17 +11,17 @@
           here</p>
       </div>
       <%= form_for @user do |f| %>
-        <div class='ui input'>
-          <% if @user.errors.any? %>
-            <div class="error_messages">
-              <h2>Form is invalid</h2>
-              <ul>
-                <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <% if @user.errors.any? %>
+          <div class="error_messages">
+            <h2>Form is invalid</h2>
+            <ul>
+              <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class='ui input'>
         <p>
           <%= f.label :email %><br />
           <%= f.text_field :email %>
@@ -34,7 +34,10 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation %>
         </p>
-      </div><br>  <br><p>
+      </div>
+      <br>
+      <br>
+      <p>
         <%= submit_tag "Sign Up" , class: 'ui button centered green'%>
       </p>
     <% end %>

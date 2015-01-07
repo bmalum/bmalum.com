@@ -8,9 +8,9 @@
     </div>
     <p>You can <%= link_to "Sign Up", sign_up_path %> here for free</p>
   </div>
+
 <%= form_tag sessions_path do %>
   <div class='ui input'>
-
   <p>
     <%= label_tag :email %><br />
     <%= text_field_tag :email, params[:email] %>

@@ -22,14 +22,19 @@ class ApplicationController < ActionController::Base
     end 
   end
 
- def is_admin? 
-    unless current_user.role == "admin" 
+ def is_admin?
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user.blank?
+      flash[:notice] = "You need to be logged in" 
+      return false
+    else
+    unless current_user.role.include? "admin"
       flash[:notice] = "You need to be Admin" 
-      redirect_to log_in_path 
       return false 
     else 
       return true 
-    end 
+    end
+  end
   end
 
 end

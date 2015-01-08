@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_access, :only => [:index, :edit, :show, :update, :destroy]
 
   def index
     @users = User.search(params[:search])
@@ -61,4 +62,11 @@ class UsersController < ApplicationController
   def user_params_edit
     params.require(:user).permit(:email, :password_hash, :password_salt, :role_as_string)
   end
+
+  protected
+
+  def check_access
+    redirect_to log_in_path and return unless is_admin?
+  end
+
 end

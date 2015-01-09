@@ -35,6 +35,17 @@ class ApplicationController < ActionController::Base
       return true 
     end
   end
+end
+
+  def is_user?(role)
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    return false if @current_user.blank?
+    unless current_user.role.include? role
+      flash[:notice] = "You need to be Admin" 
+      return false 
+    else 
+      return true 
+    end
   end
 
 end

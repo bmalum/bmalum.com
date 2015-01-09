@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_access, :only => [:index, :edit, :show, :update, :destroy]
+  before_action :check_access_admin? , :only => [:index, :edit, :show, :update, :destroy]
 
   def index
     @users = User.search(params[:search])
@@ -65,8 +65,8 @@ class UsersController < ApplicationController
 
   protected
 
-  def check_access
-    redirect_to log_in_path and return unless is_admin?
+  def check_access_admin?
+    redirect_to log_in_path and return unless is_user?("admin")
   end
 
 end

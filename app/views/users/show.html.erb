@@ -1,27 +1,21 @@
 <% if @user.blank? %>
-<p>There are not any Users currently in the system.</p>
+  <p>There are not any Users currently in the system.</p>
 <% else %><p>
-<h2><%= @user.email %> <a class="ui green tag label">active</a></h2>
-  <a class="ui green ribbon label">e-Mail</a>
-
-
-<%= @user.email %><br>
-  <a class="ui blue ribbon label">Hash</a>
-
-<%= @user.password_hash %><br>
-  <a class="ui yellow ribbon label">Roles</a>
-
-<%= @user.role %></p>
-
+    <h2><%= @user.email %>
+      <a class="ui green tag label">active</a></h2>
+    <a class="ui green ribbon label">e-Mail</a>
+    <%= @user.email %><br>
+    <a class="ui blue ribbon label">Hash</a>
+    <%= @user.password_hash %><br>
+    <a class="ui yellow ribbon label">Roles</a>
+    <%= @user.role %></p>
 <% end %>
-
-
 <div class="ui one column centered grid">
   <div class="three wide centered column">
-<div class="ui buttons">
-  <div class="ui green button"><%= link_to 'Edit', edit_user_path(@user) %></div>
-  <div class="or"></div>
-  <div class="ui button"><%= link_to 'Back', users_path %></div>
-</div>
-</div>
+    <div class="ui buttons">
+      <div class="ui green button"><%= link_to 'Edit', edit_user_path(@user) %></div>
+      <div class="or"></div>
+      <div class="ui button"><%= link_to 'Back', users_path %></div>
+    </div>
+  </div>
 </div>

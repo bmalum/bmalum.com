@@ -1,37 +1,35 @@
 <div class="ui centered grid">
-<div class="six wide  column">
-<h1 class="ui block top green attached header">Log in</h1>
-  <div class="ui bottom attached secondary segment">
-   <div class="ui error message">
-     <i class="close icon"></i>
-   	<div class="header">Don't have a Login Information? 
-    </div>
-    <p>You can <%= link_to "Sign Up", sign_up_path %> here for free</p>
-  </div>
-
-<%= form_tag sessions_path do %>
-  <div class='ui input'>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-   </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
+  <div class="six wide  column">
+    <h1 class="ui block top green attached header">Log in</h1>
+    <div class="ui bottom attached secondary segment">
+      <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">Don't have a Login Information?
+        </div>
+        <p>You can
+          <%= link_to "Sign Up", sign_up_path %>
+          here for free</p>
       </div>
-
-  </p>      
-<p>
-  <%= submit_tag "Log in" , class: 'ui button centered green'%>
-</p>
-<% end %>
+      <%= form_tag sessions_path do %>
+        <div class='ui input'>
+          <p>
+            <%= label_tag :email %><br />
+            <%= text_field_tag :email, params[:email] %>
+          </p>
+          <p>
+            <%= label_tag :password %><br />
+            <%= password_field_tag :password %>
+          </div>
+        </p>
+        <p>
+          <%= submit_tag "Log in" , class: 'ui button centered green'%>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-</div>
-</div>
-
 <script>
-$('.message .close').on('click', function() {
-  $(this).closest('.message').fadeOut();
-});
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').fadeOut();
+  });
 </script>

@@ -13,66 +13,66 @@
           <div class="ui secondary pointing menu">
             <a class="active green item" href="/">
               <div class="column"><i class="home icon"></i>bMalum</div></a>
-            <a class="item">
-              <div class="column"><i class="idea icon"></i>Blog</div></a>
-            <a class="item">
-              <div class="column"><i class="alarm outline icon"></i>Status</div></a>
-            <a class="item" href="/users">
-              <div class="column"><i class="user icon"></i>Users</div></a>
-            <div class="right menu">
-              <% if current_user %>
-                <a class="item">
-                  Logged in as
-                  <%= current_user.email %>
-                </a>
-                <%= link_to '<i class="sign out icon"></i> Log Out'.html_safe, log_out_path, class: 'item' %>
-              <% else %>
-                <div class = "item">
-                  <%= link_to '<i class="power icon icon"></i> Sign Up'.html_safe, sign_up_path%>
-                  &nbsp &nbsp
-                  <%= link_to '<i class="sign in icon"></i> Log In'.html_safe, log_in_path%></div>
-              <% end %>
               <a class="item">
-                <div class="column"><i class="mail icon"></i>Contact</div></a>
-            </div>
-          </div>
-          <% if flash[:notice] %>
-            <div class="ui centered grid">
-              <div class="six wide column">
-                <div class="ui icon message">
-                  <i class="close icon"></i>
-                  <i class="send outline icon"></i>
-                  <div class="content">
-                    <div class="header">
-                      You got a new Notice:
+                <div class="column"><i class="idea icon"></i>Blog</div></a>
+                <a class="item">
+                  <div class="column"><i class="alarm outline icon"></i>Status</div></a>
+                  <a class="item" href="/users">
+                    <div class="column"><i class="user icon"></i>Users</div></a>
+                    <div class="right menu">
+                      <% if current_user %>
+                      <a class="item">
+                        Logged in as
+                        <%= current_user.email %>
+                      </a>
+                      <%= link_to '<i class="sign out icon"></i> Log Out'.html_safe, log_out_path, class: 'item' %>
+                      <% else %>
+                      <div class = "item">
+                        <%= link_to '<i class="power icon icon"></i> Sign Up'.html_safe, sign_up_path%>
+                        &nbsp &nbsp
+                      <%= link_to '<i class="sign in icon"></i> Log In'.html_safe, log_in_path%></div>
+                      <% end %>
+                      <a class="item">
+                        <div class="column"><i class="mail icon"></i>Contact</div></a>
+                      </div>
                     </div>
-                    <p><%=   flash[:notice] %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <% if flash[:alert] %>
-            <div class="ui centered grid">
-              <div class="six wide column">
-                <div class="ui icon error message">
-                  <i class="close icon"></i>
-                  <i class="warning sign icon"></i>
-                  <div class="content">
-                    <div class="header">
-                      You got a new Notice:
+                    <% if flash[:notice] %>
+                    <div class="ui centered grid">
+                      <div class="six wide column">
+                        <div class="ui icon message">
+                          <i class="close icon"></i>
+                          <i class="send outline icon"></i>
+                          <div class="content">
+                            <div class="header">
+                              You got a new Notice:
+                            </div>
+                            <p><%=   flash[:notice] %></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p><%=   flash[:alert] %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <%= yield %>
-        </body>
-      </html>
-      <script type="text/javascript">
-        $('.message .close').on('click', function() {
-          $(this).closest('.message').fadeOut();
-        });
-      </script>
+                    <% end %>
+                    <% if flash[:alert] %>
+                    <div class="ui centered grid">
+                      <div class="six wide column">
+                        <div class="ui icon error message">
+                          <i class="close icon"></i>
+                          <i class="warning sign icon"></i>
+                          <div class="content">
+                            <div class="header">
+                              You got a new Notice:
+                            </div>
+                            <p><%=   flash[:alert] %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+                    <%= yield %>
+                  </body>
+                </html>
+                <script type="text/javascript">
+                $('.message .close').on('click', function() {
+                $(this).closest('.message').fadeOut();
+                });
+                </script>

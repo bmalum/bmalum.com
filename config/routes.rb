@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :articles
+
   get 'sessions/new'
 
   get "sign_up" => "users#new", :as => "sign_up"

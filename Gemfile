@@ -41,3 +41,6 @@ gem 'bson_ext'
 gem 'lograge'
 gem 'bcrypt', :require => "bcrypt"
 gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
+gem 'pygments.rb'

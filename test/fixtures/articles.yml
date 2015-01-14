@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  content: MyText
+  tags: MyString
+  category: MyString
+  date: 
+  language: 
+  public: false
+
+two:
+  name: 
+  content: MyText
+  tags: MyString
+  category: MyString
+  date: 
+  language: 
+  public: false

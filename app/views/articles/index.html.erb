@@ -1,0 +1,51 @@
+<div class="ui centered grid">
+  <div class="twelve wide column">
+    <h1>bMalum's Blog</h1>
+    <% if is_user?("writer") %>
+    <%= link_to 'New Article', new_article_path %>
+    <% end %>
+    <% @articles.each do |article| %>
+    <h2 class="ui top green attached header">
+    <%= link_to article.name, article %>
+    </h2>
+    <div class="ui attached segment">
+      <%= markdown(article.content).split("<!--PageBreak-->").first.html_safe %>
+    </div>
+    <div class="ui bottom attached stacked mini segment">
+      <div class="ui centered grid">
+        <div class="three wide column">
+          <strong>Tags:</strong>
+        <%= article.tags %></div>
+        <div class="three wide column">
+          <strong>Category:</strong>
+        <%= article.category %></div>
+        <div class="four wide column">
+          <strong>Published:</strong>
+        <%= article.date %></div>
+        <div class="two wide column">
+          <% if is_user?("writer") || is_user?("admin") %>
+          <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <% end %></div>
+        <div class="two wide column">
+          <% if is_user?("admin") %>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <br>
+  </div><div class="four wide column">
+  <h1>&nbsp;</h1>
+  <h4 class="ui top green attached header">Hier könnte ihre Werbung stehen</h4  >
+  <div class="ui loading attached segment">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+</div>
+</div>

@@ -1,45 +1,57 @@
 <%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
-  </div>
-  <div class="field">
-    <%= f.label :public %><br>
-    <%= f.check_box :public %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% if @article.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+<div class="ui form">
+  <h4 class="ui dividing header">Personal Information</h4>
+  <div class="one fields">
+    <div class="field">
+      <div class="fields">
+        <div class="field">
+          <%= f.text_field :name, :placeholder => "Article Title"%>
+        </div>
+        <div class="field">
+        <%= f.text_field :category, :placeholder => "Article Title" %>
+        </div>
+        <div class="field">
+          <%= f.text_field :tags, :placeholder => "Tags" %>
+        </div>
+        <div class="field">
+        <%= f.text_field :date, :value => Date.current%>
+        </div>
+<div class="field">
+        <%= f.select :language, ['German', 'English'], {}, { :class => 'ui search dropdown' } %>
+    </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <%= f.check_box :public %>
+            <label>Article Public</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui form">
+  <div class="field">
+      <%= f.text_area(:content, size: '700x300') %>
+  </div>
+</div>
+  </div>
+</div>    <div class="ui hidden divider"></div>
+
+  <%= f.submit "Update" , :class => 'ui button' %>
+<% end %>
+
+
+<script type="text/javascript">$('.ui.checkbox')
+.checkbox();
+$('select.dropdown')
+  .dropdown()
+;</script>

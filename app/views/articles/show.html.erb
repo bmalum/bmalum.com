@@ -1,59 +1,70 @@
-<script type="text/javascript">
-$(document).ready(function() {
-  $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-});
-</script>
-<p>
-  <strong>Name:</strong>
+<div class="ui piled segment">
+  <h2 class="ui header">
   <%= @article.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
+  </h2>
+  <p>
+  <a class="ui right ribbon  label">
+    <%= @article.category %>
+  </a>
   <%= markdown(@article.content) %>
-</p>
+  <a class="ui tag label">
+    <%= @article.tags %>
+  </a>
+  <div class="ui bottom right attached label">
+    <%= @article.date %>
+  </div>
+  </p>
+</div>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @article.tags %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @article.category %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @article.date %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @article.language %>
-</p>
-
-<p>
-  <strong>Public:</strong>
-  <%= @article.public %>
-</p>
 
 <% if @article.comments.size > 0 %>
-  <h2>Comments</h2>
-  <% for comment in @article.comments %>
-    <h3><%= comment.name %></h3>
-    <p><%= comment.content %></p>
-  <% end %>
+<h2>Comments</h2>
+<% for comment in @article.comments %>
+<div class="ui comments">
+  <div class="comment">
+    <a class="avatar">
+      <img src="http://lorempixel.com/400/300/">
+    </a>
+    <div class="content">
+      <a class="author"><%= comment.name %></a>
+      <div class="metadata">
+        <div class="date">2 days ago</div>
+        <div class="rating">
+          <i class="star icon"></i>
+          5 Faves
+        </div>
+      </div>
+      <div class="text">
+        <%= comment.content %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 <% end %>
 
-<h2>New Comment</h2>
+<h3>New Comment</h3>
 <%= form_for [@article, Comment.new] do |f| %>
-  <p><%= f.label :name %> <%= f.text_field :name %></p>
-  <p><%= f.text_area :content, :rows => 10 %></p>
-  <p><%= f.submit %></p>
+<div class="ui reply form">
+        <div class="field">
+<p><%= f.label :name %> <%= f.text_field :name %></p>
+</div>
+        <div class="field">
+<p><%= f.text_area :content, :rows => 10 %></p>
+        </div>
+        <p><%= f.submit "Send", :class => "ui primary submit labeled icon button" %></p>
 <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('pre code').each(function(i, block) {
+hljs.highlightBlock(block);
+});
+});
+</script>

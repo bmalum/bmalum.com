@@ -48,3 +48,5 @@ gem 'lograge'
 gem 'bcrypt', :require => "bcrypt"
 # Redcarped for Text/Markdown to HTML
 gem 'redcarpet' 
+# Identicon Icon Generator
+gem 'identicon'

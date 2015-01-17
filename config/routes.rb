@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get "sign_up" => "users#new", :as => "sign_up"
+  
+  get "blog" => "articles#index", :as => "blog"
 
   get "log_in" => "sessions#new", :as => "log_in"
 
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   get "/assets/themes/default/assets/fonts/icons.svg" => redirect("/assets/fonts/icons.svg")
+  get "/assets/themes/default/assets/fonts/icons.tff" => redirect("/assets/fonts/icons.tff")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

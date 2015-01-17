@@ -5,31 +5,32 @@
     <%= link_to 'New Article', new_article_path %>
     <% end %>
     <% @articles.each do |article| %>
-    <h2 class="ui top green attached header">
+    <h3 class="ui top green attached header">
     <%= link_to article.name, article %>
-    </h2>
+    </h3>
     <div class="ui attached segment">
+      <p>
       <%= markdown(article.content).split("<!--PageBreak-->").first.html_safe %>
-    </div>
-    <div class="ui bottom attached stacked mini segment">
-      <div class="ui centered grid">
-        <div class="three wide column">
-          <strong>Tags:</strong>
-        <%= article.tags %></div>
-        <div class="three wide column">
-          <strong>Category:</strong>
-        <%= article.category %></div>
-        <div class="four wide column">
-          <strong>Published:</strong>
-        <%= article.date %></div>
-        <div class="two wide column">
-          <% if is_user?("writer") || is_user?("admin") %>
-          <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <% end %></div>
-        <div class="two wide column">
-          <% if is_user?("admin") %>
-          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+          <%= link_to "Read more ...", article , :class => "ui  green right ribbon label" %>
+      </p>
+      <br>
+      <div class="ui bottom attached stacked mini label">
+        <div class="ui centered grid">
+          <div class="three wide column">
+            Tags: <%= article.tags %></div>
+          <div class="three wide column">
+            Category: <%= article.category %></div>
+          <div class="four wide column">
+            Published: <%= article.date %></div>
+          <div class="two wide column">
+            <% if is_user?("writer") || is_user?("admin") %>
+            <td><%= link_to 'Edit', edit_article_path(article) %></td>
+          <% end %></div>
+          <div class="two wide column">
+            <% if is_user?("admin") %>
+            <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

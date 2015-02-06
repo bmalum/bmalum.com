@@ -77,10 +77,12 @@ production:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
       database: bmalum_com_production
+      username: bmalum
+      password: CUfe7SH3
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+        - ds037601.mongolab.com:37601
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -115,7 +117,7 @@ production:
 
     # Raise an error when performing a #find and the document is not found.
     # (default: true)
-    raise_not_found_error: flase
+    raise_not_found_error: false
 
     # Raise an error when defining a scope with the same name as an
     # existing method. (default: false)

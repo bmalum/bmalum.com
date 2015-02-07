@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   protected
 
   def check_access_admin?
-    redirect_to log_in_path and return unless is_user?("admin")
+    redirect_to log_in_path and return unless is_admin?
   end
 
 end

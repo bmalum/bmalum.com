@@ -11,7 +11,7 @@
     <%= @article.tags %>
   </a>
   <div class="ui bottom right attached label">
-    <%= @article.date %>
+    <%= @article.date.strftime("%F %T") %>
   </div>
   </p>
 </div>

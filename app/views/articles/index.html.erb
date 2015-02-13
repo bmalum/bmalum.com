@@ -5,6 +5,7 @@
     <%= link_to 'New Article', new_article_path %>
     <% end %>
     <% @articles.each do |article| %>
+    <% if article.public %>
     <h3 class="ui top green attached header">
     <%= link_to article.name, article %>
     </h3>
@@ -17,7 +18,7 @@
       <div class="ui bottom attached stacked mini label">
         <div class="ui centered grid">
           <div class="three wide column">
-            <%= article.date  %></div>
+            <%= article.date.strftime("%F")  %></div>
           <div class="three wide column">
             <%= article.category %></div>
           <div class="four wide column">
@@ -34,6 +35,7 @@
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
     <br>
   </div><div class="four wide column">

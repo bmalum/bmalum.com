@@ -14115,8 +14115,8 @@ ol.ui.horizontal.list li:before,
     width: auto;
     margin-left: 0em;
     margin-right: 0em;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 

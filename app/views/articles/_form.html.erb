@@ -24,7 +24,7 @@
           <%= f.text_field :tags, :placeholder => "Tags" %>
         </div>
         <div class="field">
-          <%= f.text_field :date, :value => Date.current%>
+          <%= f.text_field :date, :value => Time.now%>
         </div>
         <div class="field">
           <%= f.select :language, ['German', 'English'], {}, { :class => 'ui search dropdown' } %>

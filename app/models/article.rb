@@ -14,10 +14,10 @@ class Article
 
 
   def tags_as_string
-    role.join(',')
+    tags.join(',')
   end
 
   def tags_as_string=(string)
-    update_attributes(role: string.split(','))
+    update_attributes(tags: string.split(','))
   end
 end

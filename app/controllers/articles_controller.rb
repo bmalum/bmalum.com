@@ -73,6 +73,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params_edit
-      params.require(:article).permit(:name, :content, :tags_string, :category, :date, :language, :public)
+      params.require(:article).permit(:name, :content, :tags_as_string, :category, :date, :language, :public)
     end
 end

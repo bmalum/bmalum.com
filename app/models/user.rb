@@ -50,7 +50,7 @@ end
     end
   end
 
-   def role_as_string
+  def role_as_string
     role.join(',')
   end
 

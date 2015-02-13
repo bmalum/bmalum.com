@@ -17,11 +17,11 @@
       <div class="ui bottom attached stacked mini label">
         <div class="ui centered grid">
           <div class="three wide column">
-            Tags: <%= article.tags %></div>
+            <%= article.date  %></div>
           <div class="three wide column">
-            Category: <%= article.category %></div>
+            <%= article.category %></div>
           <div class="four wide column">
-            Published: <%= article.date %></div>
+            <%= article.tags %></div>
           <div class="two wide column">
             <% if is_user?("writer") || is_user?("admin") %>
             <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -50,3 +50,4 @@
 </div>
 </div>
 </div>
+

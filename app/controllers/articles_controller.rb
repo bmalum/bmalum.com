@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order_by(:date.desc)
   end
 
   # GET /articles/1
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(article_params_edit)
 
     respond_to do |format|
       if @article.save
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.update(article_params_edit)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -70,5 +70,9 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:name, :content, :tags, :category, :date, :language, :public)
+    end
+
+    def article_params_edit
+      params.require(:article).permit(:name, :content, :tags_string, :category, :date, :language, :public)
     end
 end

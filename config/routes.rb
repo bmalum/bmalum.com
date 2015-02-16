@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   get "blog" => "articles#index", :as => "blog"
 
+  get "control_panel" => "static_pages#status", :as => "control_panel"
+
   get "log_in" => "sessions#new", :as => "log_in"
 
   get "log_out" => "sessions#destroy", :as => "log_out"

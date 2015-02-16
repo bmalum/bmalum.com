@@ -25,8 +25,8 @@
               <a class="green item" href="/">
                 <% end %>
                 <div class="column"><i class="home icon"></i>bMalum</div></a>
-                <% if current_page?(controller: 'articles') || current_page?('/blog') %>
-                <a class="active green item" href="/">
+                <% if /\/articles\b/.match(request.fullpath) || current_page?('/blog') %>
+                  <a class="active green item" href="/blog">
                   <% else %>
                   <a class="green item" href="/blog">
                     <% end %>

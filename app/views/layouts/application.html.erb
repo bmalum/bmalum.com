@@ -4,153 +4,155 @@
     <title>BmalumCom</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %><%= csrf_meta_tags %>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-30552364-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30552364-1', 'auto');
+    ga('send', 'pageview');
+    </script>
   </head>
   <body>
     <div class="ui nobottommargin segment">
       <div class="ui page grid">
         <div class="one wide column"></div>
         <div class="fourteen wide column">
-          <div class="ui secondary pointing menu">
+          <div class="ui secondary pointing menu"> %>
+            <% if current_page?('/') %>
             <a class="active green item" href="/">
-              <div class="column"><i class="home icon"></i>bMalum</div></a>
-              <a class="item" href="/blog">
-                <div class="column"><i class="idea icon"></i>Blog</div></a>
-                <a class="item" >
-                  <div class="column"><i class="alarm outline icon"></i>Status</div></a>
-                  <a class="item" href="/users">
-                    <div class="column"><i class="user icon"></i>Users</div></a>
-                    <div class="right menu">
-                      <% if current_user %>
-                      <a class="item">
-                        Logged in as
-                        <%= current_user.email %>
-                      </a>
-                      <%= link_to '<i class="sign out icon"></i> Log Out'.html_safe, log_out_path, class: 'item' %>
-                      <% else %>
-                      <div class = "item">
-                        <%= link_to '<i class="power icon icon"></i> Sign Up'.html_safe, sign_up_path%>
-                        &nbsp; &nbsp;
-                      <%= link_to '<i class="sign in icon"></i> Log In'.html_safe, log_in_path%></div>
-                      <% end %>
-                      <a class="item">
-                        <div class="column"><i class="mail icon"></i>Contact</div></a>
-                      </div>
-                    </div>
-                    <% if flash[:notice] %>
-                    <div class="ui centered grid">
-                      <div class="six wide column">
-                        <div class="ui icon message">
-                          <i class="close icon"></i>
-                          <i class="send outline icon"></i>
-                          <div class="content">
-                            <div class="header">
-                              You got a new Notice:
-                            </div>
-                            <p><%=   flash[:notice] %></p>
+              <% else %>
+              <a class="green item" href="/">
+                <% end %>
+                <div class="column"><i class="home icon"></i>bMalum</div></a>
+                <% if current_page?(controller: 'articles') || current_page?('/blog') %>
+                <a class="active green item" href="/">
+                  <% else %>
+                  <a class="green item" href="/blog">
+                    <% end %>
+                    <div class="column"><i class="idea icon"></i>Blog</div></a>
+                    <a class="item" href="/control_panel">
+                      <div class="column"><i class="alarm outline icon"></i>Status</div></a>
+                        <div class="right menu">
+                          <% if current_user %>
+                          <a class="item">
+                            Logged in as
+                            <%= current_user.email %>
+                          </a>
+                          <%= link_to '<i class="sign out icon"></i> Log Out'.html_safe, log_out_path, class: 'item' %>
+                          <% else %>
+                          <div class = "item">
+                            <%= link_to '<i class="power icon icon"></i> Sign Up'.html_safe, sign_up_path%>
+                            &nbsp; &nbsp;
+                          <%= link_to '<i class="sign in icon"></i> Log In'.html_safe, log_in_path%></div>
+                          <% end %>
+                          <a class="item">
+                            <div class="column"><i class="mail icon"></i>Contact</div></a>
                           </div>
+                        </div>
+                        <% if flash[:notice] %>
+                        <div class="ui centered grid">
+                          <div class="six wide column">
+                            <div class="ui icon message">
+                              <i class="close icon"></i>
+                              <i class="send outline icon"></i>
+                              <div class="content">
+                                <div class="header">
+                                  You got a new Notice:
+                                </div>
+                                <p><%=   flash[:notice] %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <% end %>
+                        <% if flash[:alert] %>
+                        <div class="ui centered grid">
+                          <div class="six wide column">
+                            <div class="ui icon error message">
+                              <i class="close icon"></i>
+                              <i class="warning sign icon"></i>
+                              <div class="content">
+                                <div class="header">
+                                  You got a new Notice:
+                                </div>
+                                <p><%=   flash[:alert] %></p>
+                                <p id="notice"><%= notice %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <% end %>
+                        <%= yield %>
+                        <!-- Footer -->
                         </div>
                       </div>
                     </div>
-                    <% end %>
-                    <% if flash[:alert] %>
-                    <div class="ui centered grid">
-                      <div class="six wide column">
-                        <div class="ui icon error message">
-                          <i class="close icon"></i>
-                          <i class="warning sign icon"></i>
-                          <div class="content">
-                            <div class="header">
-                              You got a new Notice:
+                    <div class="ui inverted footer vertical segment">
+                      <div class="ui stackable center aligned page grid">
+                        <div class="ten wide column">
+                          <div class="ui three column center aligned stackable grid">
+                            <div class="column">
+                              <h5 class="ui inverted header">References</h5>
+                              <div class="ui inverted link list">
+                                <a class="item" href="http://apl-apparatebau.com">
+                                APL-Apparatebau</a>
+                                <a class="item" href="https://www.youtube.com/watch?v=K8E_zMLCRNg">
+                                MP-Consulting</a>
+                                <a class="item" href="http://ingrid-partl.com">
+                                Ingrid Partl</a>
+                                <a class="item" href="http://edv-systeme.at">
+                                K&amp;M Edvsysteme</a>
+                              </div>
                             </div>
-                            <p><%=   flash[:alert] %></p>
-                            <p id="notice"><%= notice %></p>
+                            <div class="column">
+                              <h5 class="ui inverted header">Social Stuff</h5>
+                              <div class="ui inverted link list">
+                                <a class="item" href="https://twitter.com/bmalum_">
+                                <i class="twitter icon"></i>Twitter</a>
+                                <a class="item" href="https://github.com/bmalum">
+                                <i class="github icon"></i>GitHub</a>
+                                <a class="item" href="https://stackexchange.com/users/3555847/bmalum">
+                                <i class="stack overflow icon"></i>StackExchange</a>
+                                <a class="item" href="https://keybase.io/bmalum">
+                                <i class="lock icon"></i>KeyBase.io</a>
+                              </div>
+                            </div>
+                            <div class="column">
+                              <h5 class="ui inverted header">QuickLinks</h5>
+                              <div class="ui inverted link list">
+                                <a class="item disabled">
+                                Projects</a>
+                                <a class="item disabled">
+                                Blog</a>
+                                <a class="item disabled">
+                                Server-Status</a>
+                                <a class="item disabled">
+                                Support-Form</a>
+                              </div>
+                            </div>
                           </div>
+                        </div>
+                        <div class="six wide column">
+                          <h5 class="ui inverted header">Contact Us</h5>
+                          Hidden Address
+                          <br>
+                          Tyrol , Austria
+                          <br>
+                          <p>support@bmalum.com</p>
+                          <a class="item" href="/static_pages/impressum">
+                            Impressum
+                          </a>
                         </div>
                       </div>
                     </div>
-
-                    <% end %>
-                    <%= yield %>
-                    <!-- Footer -->
-                    </div>
-                    </div>
-<div class="ui inverted footer vertical segment">
-  <div class="ui stackable center aligned page grid">
-    <div class="ten wide column">
-      <div class="ui three column center aligned stackable grid">
-        <div class="column">
-          <h5 class="ui inverted header">References</h5>
-          <div class="ui inverted link list">
-            <a class="item" href="http://apl-apparatebau.com">
-              APL-Apparatebau</a>
-            <a class="item" href="https://www.youtube.com/watch?v=K8E_zMLCRNg">
-              MP-Consulting</a>
-            <a class="item" href="http://ingrid-partl.com">
-              Ingrid Partl</a>
-            <a class="item" href="http://edv-systeme.at">
-              K&amp;M Edvsysteme</a>
-          </div>
-        </div>
-        <div class="column">
-          <h5 class="ui inverted header">Social Stuff</h5>
-          <div class="ui inverted link list">
-            <a class="item" href="https://twitter.com/bmalum_">
-              <i class="twitter icon"></i>Twitter</a>
-            <a class="item" href="https://github.com/bmalum">
-              <i class="github icon"></i>GitHub</a>
-            <a class="item" href="https://stackexchange.com/users/3555847/bmalum">
-              <i class="stack overflow icon"></i>StackExchange</a>
-            <a class="item" href="https://keybase.io/bmalum">
-              <i class="lock icon"></i>KeyBase.io</a>
-          </div>
-        </div>
-        <div class="column">
-          <h5 class="ui inverted header">QuickLinks</h5>
-          <div class="ui inverted link list">
-            <a class="item disabled">
-              Projects</a>
-            <a class="item disabled">
-              Blog</a>
-            <a class="item disabled">
-              Server-Status</a>
-            <a class="item disabled">
-              Support-Form</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="six wide column">
-      <h5 class="ui inverted header">Contact Us</h5>
-        Hidden Address
-        <br>
-        Tyrol , Austria
-        <br>
-      <p>support@bmalum.com</p>
-      <a class="item" href="/static_pages/impressum">
-        Impressum
-      </a>
-    </div>
-  </div>
-  </div>
+                  </div>
                 </div>
-                </div>
-                </div>
-                <script type="text/javascript">
-                $('.message .close').on('click', function() {
-                $(this).closest('.message').fadeOut();
-                });
-                </script>
-                  </body>
-                </html>
+              </div>
+              <script type="text/javascript">
+              $('.message .close').on('click', function() {
+              $(this).closest('.message').fadeOut();
+              });
+              </script>
+            </body>
+          </html>

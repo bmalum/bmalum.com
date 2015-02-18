@@ -9,7 +9,8 @@ module ApplicationHelper
       lax_html_blocks: true,
       strikethrough: true,
       superscript: true,
-      gh_codeblocks: true
+      gh_codeblocks: true,
+      tables: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end

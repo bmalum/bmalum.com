@@ -1,0 +1,65 @@
+<%= form_for(@computation_unit) do |f| %>
+  <% if @computation_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@computation_unit.errors.count, "error") %> prohibited this computation_unit from being saved:</h2>
+
+      <ul>
+      <% @computation_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ram %><br>
+    <%= f.text_field :ram %>
+  </div>
+  <div class="field">
+    <%= f.label :CPU_Cores %><br>
+    <%= f.text_field :CPU_Cores %>
+  </div>
+  <div class="field">
+    <%= f.label :CPU_Clock %><br>
+    <%= f.text_field :CPU_Clock %>
+  </div>
+  <div class="field">
+    <%= f.label :storage %><br>
+    <%= f.text_field :storage_as_string %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %><br>
+    <%= f.text_field :ip %>
+  </div>
+  <div class="field">
+    <%= f.label :uplink %><br>
+    <%= f.text_field :uplink %>
+  </div>
+  <div class="field">
+    <%= f.label :downlink %><br>
+    <%= f.text_field :downlink %>
+  </div>
+  <div class="field">
+    <%= f.label :online %><br>
+    <%= f.check_box :online %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :added %><br>
+    <%= f.text_field :added %>
+  </div>
+  <div class="field">
+    <%= f.label :updated %><br>
+    <%= f.text_field :updated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

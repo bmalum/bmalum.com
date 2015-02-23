@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :computation_units
+
   resources :articles do
     resources :comments
   end

@@ -13,12 +13,21 @@ p, ol, ul, td {
 }
 
 pre {
-border-radius: 5px; 
--moz-border-radius: 5px; 
--webkit-border-radius: 5px; 
-border: 1px outset #800000;
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
 }
 
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
 
 div {
   &.field, &.actions {

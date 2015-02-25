@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>UID:</strong>
+  <%= @computation_unit.id %>
+</p>
+
+<p>
+  <strong>Ram:</strong>
+  <%= @computation_unit.ram %>
+</p>
+
+<p>
+  <strong>Cpu cores:</strong>
+  <%= @computation_unit.CPU_Cores %>
+</p>
+
+<p>
+  <strong>Cpu clock:</strong>
+  <%= @computation_unit.CPU_Clock %>
+</p>
+
+<p>
+  <strong>Storage:</strong>
+  <%= @computation_unit.storage %>
+</p>
+
+<p>
+  <strong>IP:</strong>
+  <%= @computation_unit.ip %>
+</p>
+
+<p>
+  <strong>Downlink:</strong>
+  <%= @computation_unit.downlink %>
+</p>
+
+<p>
+  <strong>Uplink:</strong>
+  <%= @computation_unit.uplink %>
+</p>
+
+<p>
+  <strong>Online:</strong>
+  <%= @computation_unit.online %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @computation_unit.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @computation_unit.location %>
+</p>
+
+<p>
+  <strong>Added:</strong>
+  <%= @computation_unit.added %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @computation_unit.updated %>
+</p>
+
+<%= link_to 'Edit', edit_computation_unit_path(@computation_unit) %> |
+<%= link_to 'Back', computation_units_path %>

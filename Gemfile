@@ -50,3 +50,6 @@ gem 'bcrypt', :require => "bcrypt"
 gem 'redcarpet' 
 # Identicon Icon Generator
 gem 'identicon'
+# Pretty URL
+gem 'mongoid-slug'
+

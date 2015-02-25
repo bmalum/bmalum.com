@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :computation_units
+
   resources :articles do
     resources :comments
   end
@@ -32,6 +34,12 @@ Rails.application.routes.draw do
 
   get "/assets/themes/default/assets/fonts/icons.svg" => redirect("/assets/fonts/icons.svg")
   get "/assets/themes/default/assets/fonts/icons.tff" => redirect("/assets/fonts/icons.tff")
+
+  namespace :api, defaults: {format: 'json'}  do
+    namespace :v1 do
+      resource :computation_units
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

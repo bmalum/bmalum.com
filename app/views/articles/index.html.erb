@@ -14,9 +14,9 @@ hljs.highlightBlock(block);
     <% end %>
     <% @articles.each do |article| %>
     <% if article.public %>
-    <h3 class="ui top green attached header">
+    <h2 class="ui top green attached header">
     <%= link_to article.name, article %>
-    </h3>
+    </h2>
     <div class="ui attached segment">
       <p>
       <%= markdown(article.content).split("<!--PageBreak-->").first.html_safe %>

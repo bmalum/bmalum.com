@@ -33,8 +33,8 @@ module Api
 
       def restrict_access
         authenticate_or_request_with_http_token do |token, options|
-          puts Digest::HMAC.hexdigest(options.to_s, "hashkey", Digest::SHA1)
-          if(Digest::HMAC.hexdigest(options.to_s, "hashkey", Digest::SHA1) == token)
+          puts Digest::HMAC.hexdigest(options.to_s, ENV["HMAC_Api_Key"].to_s, Digest::SHA1)
+          if(Digest::HMAC.hexdigest(options.to_s, ENV["HMAC_Api_Key"].to_s, Digest::SHA1) == token)
             true
           else
             false

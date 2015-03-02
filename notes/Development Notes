@@ -1,0 +1,10 @@
+Development Notes
+=================
+
+# Production Keys:
+
+	Stored in an Env Varibale - should no be in the Source Code, because the HMAC will be used for Session Cookies and also for the Token Generation for the API.
+
+## Set Prodcution Keys
+
+	

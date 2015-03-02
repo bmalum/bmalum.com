@@ -1,7 +1,9 @@
 module Api
   module V1
     class ComputationUnitsController < ApplicationController
-      protect_from_forgery except: :index
+      skip_before_filter :verify_authenticity_token
+      protect_from_forgery with: :null_session
+      before_filter :restrict_access
 
       respond_to :json
 
@@ -27,6 +29,17 @@ module Api
 
       def computation_unit_params
       params.require(:computation_unit).permit(:ram, :CPU_Cores, :CPU_Clock, :storage, :ip, :uplink, :downlink, :online, :name, :location, :added, :updated)
+      end
+
+      def restrict_access
+        authenticate_or_request_with_http_token do |token, options|
+          puts Digest::HMAC.hexdigest(options.to_s, ENV["HMAC_Api_Key"].to_s, Digest::SHA1)
+          if(Digest::HMAC.hexdigest(options.to_s, ENV["HMAC_Api_Key"].to_s, Digest::SHA1) == token)
+            true
+          else
+            false
+          end
+        end
       end
     end
   end

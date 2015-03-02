@@ -1,0 +1,40 @@
+Design Notes
+============
+
+
+
+|-----------|
+| Server 01 |-------
+|-----------|        \
+|-----------|         \
+| Server 02 |_________ \
+|-----------|           \
+|-----------|            \        |----------------|				:--------:   
+| Server 03 |---------------<--->-|  bmalum.com/xy |-----<--www-->  | WebView| 
+|-----------|            /        |----------------|				:--------:
+|-----------|           /
+| Server 04 | _________/
+|-----------|         /
+| Server 01 |---------
+|-----------|
+
+
+# WebView 
+
+Serverstats:
+
+* Uptime
+* General Infos
+* CPU Average
+* RAM Average
+* Storage (Used Free)
+	+ Disks Health
+	+ Raid Status
+* Network
+	+ I/O
+	+ Volume
+	+ IP Adresses 
+	+ Online Status
+* Jails + Status
+* Services 
+

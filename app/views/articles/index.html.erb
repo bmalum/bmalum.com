@@ -13,7 +13,7 @@ hljs.highlightBlock(block);
     <%= link_to 'New Article', new_article_path %>
     <% end %>
     <% @articles.each do |article| %>
-    <% if article.public %>
+    <% if article.public || is_user?("writer") %>
     <h2 class="ui top green attached header">
     <%= link_to article.name, article %>
     </h2>

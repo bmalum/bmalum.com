@@ -1,28 +1,4 @@
-== README
+== bMalum.com 
+(inactive in Development) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+According to [this Blog-Post](http://www.bmalum.com/articles/update-bmalum-dot-com-github-projekt) this Repository will not be updated! Please follow the Instructions on the Blog-Post to get to the Tutorials or new Projects
